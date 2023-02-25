@@ -1,3 +1,5 @@
+//defino variable
+
 const int AIA = 3;  //motor A
 
 const int AIB = 11;
@@ -17,6 +19,7 @@ int echo = 2;
 long tiempoPulso;
 float dstMedida;
 
+//inicializo pines
 void setup() {
 
 Serial.begin(9600);
@@ -64,7 +67,7 @@ pinMode(ledTest, OUTPUT);
 }
 
 
-
+//indico lo que se va a ejecutar
 void loop() {
 
 
@@ -77,7 +80,7 @@ void loop() {
 
   Serial.println("Tiempo / Distancia ");
 
-  Serial.print(tiempoPulso);
+  Serial.print(tiempoPulso);                              // codigo de los datos recibidos por el sensor ultrasonico y vuelca en monitor serie
 
   Serial.print(" / ");
 
@@ -92,7 +95,7 @@ void loop() {
     abrir(3);
     delay(500);
     line();
-    delay(100);
+    delay(100);                        //condicion que permite la automatizacion de la apertura de tapa y su cierre
     flash();
     delay(100);
     cerrar();
@@ -122,13 +125,7 @@ void abrir(int veces) {
   }
 }
 
-void cerrarrr(int veces) {
-  for (int j = 0; j < veces; j++) {
-    analogWrite(AIA, 0);
-    analogWrite(AIB, 255);
-    delay(500);
-  }
-}
+
 
 
 void parar()
@@ -152,7 +149,7 @@ void intermitente()
   delay(100);
   analogWrite(rDer, 255);
   analogWrite(rIzq, 255);
-  delay(100);
+  delay(100);                                            //juego de luces
   desv();
   delay(100);
   analogWrite(bDer, 100);
@@ -234,44 +231,3 @@ void line()
  delay(100);
 }
 
-/*void izquierda()
-  {analogWrite(bIzq, 255);
- analogWrite(bIzq, 0);
- delay(50);
- analogWrite(rIzq, 255);
- analogWrite(rIzq, 0);
- delay(50);
- analogWrite(rDer, 255);
- analogWrite(rDer, 0);
- delay(50);
- analogWrite(bDer, 255);
- analogWrite(bDer, 0);
- delay(50);
- analogWrite(rDer, 255);
- analogWrite(rDer, 0);
- delay(50);
-  analogWrite(rIzq, 255);
- analogWrite(rIzq, 0);
- delay(50);
-  analogWrite(bIzq, 255);
- analogWrite(bIzq, 0);
- delay(1000);
-  analogWrite(AIA, 0);
-  analogWrite(AIB, 255);
-  analogWrite(BIA, 255);
-  analogWrite(BIB, 0);
-  delay(500);
-  }
-
-
-  void derecha()
-  {
-  analogWrite(AIA, 255);
-  analogWrite(AIB, 0);
-  analogWrite(BIA, 0);
-  analogWrite(BIB, 255);
-  delay(500);
-  }
-
-
-  }*/
